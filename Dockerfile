@@ -1,26 +1,21 @@
-# Step 1: Use the official Node.js image as the base image
-FROM node:18-alpine
+FROM node:18
 
-# Step 2: Set the working directory inside the container
 WORKDIR /app
 
-# Step 3: Copy package.json and package-lock.json for dependency installation
+# Copy the package.json and package-lock.json
 COPY package*.json ./
 
-# Step 4: Install dependencies
+# Install dependencies
 RUN npm install
 
-# Step 5: Copy the rest of the application files
-COPY . .
-
-# Step 6: Build the React app
+# Build the app
 RUN npm run build
 
-# Step 7: Install a lightweight web server to serve the build files (e.g., `serve`)
+# Install serve globally to serve the build folder
 RUN npm install -g serve
 
-# Step 8: Expose port 3000 to access the app
-EXPOSE 3000
+# Expose the necessary port
+EXPOSE 5000
 
-# Step 9: Command to run the application
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Serve the app from the dist directory
+CMD ["serve", "-s", "dist"]
