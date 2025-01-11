@@ -5,14 +5,17 @@ WORKDIR /app
 # Copy only package.json and package-lock.json
 COPY package*.json ./
 
-# Install only production dependencies
-RUN npm ci --production
+# Install dependencies
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the app
 RUN npm run build
+
+# Add a debug step to ensure the build folder exists
+RUN ls -al /app/build
 
 # Stage 2: Serve the app with Nginx
 FROM nginx:alpine
