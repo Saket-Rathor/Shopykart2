@@ -9,6 +9,8 @@ Currently, two official plugins are available:
 
 sudo apt-get install docker.io
 sudo usermod -aG docker $USER
+newgrp docker
+
 
 
 sudo apt update
