@@ -75,4 +75,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 sudo apt update
 sudo apt install nodejs npm -y
 
+IF PIPELINE BUILD FIALED USE
+sudo visudo
+jenkins ALL=(ALL) NOPASSWD: /usr/bin/docker(paste in visudo)
+
 
