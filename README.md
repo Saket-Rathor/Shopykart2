@@ -31,6 +31,9 @@ add in ec2 inbound rule add port 8080
 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
+sudo apt update
+sudo apt install nodejs npm -y
+
 
 
 
