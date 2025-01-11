@@ -32,6 +32,14 @@ npm install
 npm start
 npm run dev
 
+IF YOU GETTING ERROR-
+npm install vite@latest
+npm install sass@latest
+npm cache clean --force
+npm ls sass
+npm run dev
+
+
 Configure EC2 Security Group
 Add port 5173 to the EC2 security group inbound rules.
 Mask it with the EC2 instance public IP <...>.
