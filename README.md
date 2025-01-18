@@ -45,7 +45,7 @@ Add port 5173 to the EC2 security group inbound rules.
 Mask it with the EC2 instance public IP <...>.
 
 FOR AUTOMATION
-Install Docker
+Install Docker:
 sudo apt-get install docker.io
 sudo usermod -aG docker $USER
 newgrp docker
@@ -55,13 +55,13 @@ sudo apt update
 sudo apt install fontconfig openjdk-17-jre
 java -version
 
-Install Jenkins
+Install Jenkins:
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
 sudo apt-get install jenkins
 
-Configure Jenkins
+Configure Jenkins:
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 
@@ -75,7 +75,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 sudo apt update
 sudo apt install nodejs npm -y
 
-IF PIPELINE BUILD FIALED USE
+IF PIPELINE BUILD FAILED USE
 sudo visudo
 jenkins ALL=(ALL) NOPASSWD: /usr/bin/docker(paste in visudo)
 
